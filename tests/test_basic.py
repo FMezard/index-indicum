@@ -1,7 +1,6 @@
 import os
 import sys
 import unittest
-
 sys.path.append("..")
 
 import app
@@ -34,6 +33,8 @@ class HelperTests(unittest.TestCase):
     
     def test_sort_names(self):
         ### WRITE TEST CODE HERE
+        self.assertEqual(app._sort_names(["Alexander Jones", "Sebastian Heath"]), ["Sebastian Heath", "Alexander Jones"])
+
         pass
 
     
