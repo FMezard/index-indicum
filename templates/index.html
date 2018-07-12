@@ -3,13 +3,23 @@
 <title>Index</title>
 {%endblock%}
 {% block body %}
-<h1 style="text-align:center;">Index</h1>
+<h1>Welcome to Index Indicum</h1>
+<p class="description">The website offers you the opportunity to explore the data contained in ISAW Papers, the digital publication of the <a href="http://isaw.nyu.edu/">Institute for the Study of the Ancient World</a>. You have several ways of discovering the papers:</p>
+<div class="container">
+<div class="row d-flex justify-content-around" style="margin : 5px">
+        <div class="col-md-3 col-xs-1"><a href="{{url_for('get_papers')}}" class="btn btn-secondary btn-sm btn-block">By authors</a></div>
+    <div class="col-md-3 col-xs-1"><a href="{{url_for('get_places')}}" class="btn btn-secondary btn-sm btn-block">By places</a></div>
+    <div class="col-md-3 col-xs-1"><a href="{{url_for('map_places')}}" class="btn btn-secondary btn-sm btn-block">Through a map</a></div>
+    <div class="col-md-3 col-xs-1"><a href="{{url_for('tfidf')}}" class="btn btn-secondary btn-sm btn-block">Through a list of keywords</a></div>
+    </div>
+    </div>
+<p class="description">Here are the articles from <a href="http://isaw.nyu.edu/publications/isaw-papers">ISAW Papers</a>:</p>
 <ul>
-    <li><a href="{{url_for('get_authors')}}">List of all the authors for each papers</a></li>
-    <li><a href="{{url_for('get_papers')}}">List of all the papers for each author</a></li>
-    <li><a href="{{url_for('get_places')}}">List of all the authors for places cited in the papers</a></li>
-    <li><a href="{{url_for('map_places')}}">Map of all the places cited in ISAW Papers with links to Pleiades</a></li>
-    <li><a href="{{url_for('tfidf')}}">List of the most relevant words of each articles</a></li>
-
+    {% for k, v in authors_data.items() %}
+    <li><a href="{{'%s%s/' % (BASE_URL, k)}}">ISAW Papers {{k}}</a>: {{", ".join(v)}}</li>
+    {% endfor %}
 </ul>
+
+
+
 {% endblock  %}

@@ -7,6 +7,19 @@ h2 {
 	padding-top: 25px;
 }
 
+.navbar-brand {
+    color : white;
+}
+.navbar-brand:hover {
+    color : grey;
+}
+.description {
+    text-align: center;
+    margin : 10%;
+    margin-top : 2% ;
+    margin-bottom : 2%;
+}
+
 #articles {
 	text-indent: 1em;
 	line-height: 1.4em;
@@ -18,12 +31,10 @@ h2 {
 }
 
 .article {
-	border: 2px solid black;
+
 	padding: 5%;
 	margin-bottom: 15px;
-
-
-
+	background-color : #dddddd;
 }
 
 
@@ -32,9 +43,20 @@ h2 {
 	text-align: center;
 }
 
-#articles a {
+p > a {
     color: black;
+    text-decoration: underline;
+}
 
+li > a {
+    color: black;
+    text-decoration: underline;
+}
+
+
+.paper a {
+    color: black;
+    text-decoration: underline;
 }
 
 #articles img {
@@ -60,3 +82,4 @@ h2 {
     cursor: pointer;
 
 }
+

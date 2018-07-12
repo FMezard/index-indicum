@@ -58,14 +58,6 @@ def _update_cash() :
 def homepage():
     ''' Route to the homepage
     '''
-    return render_template('index.html')
-
-
-@app.route('/authors')
-def get_authors():
-    '''
-    Route to a page listing the authors by papers
-    '''
     authors_data = dict()
     for i, url in enumerate(PAPERS_URLS, 1):
         with open("data/papers/isaw-papers-%s.xhtml" % (i), "r") as paper:
@@ -74,9 +66,8 @@ def get_authors():
         a2 = html_content.xpath('//span[contains(@property, "dcterms:creator")]/text()')
         a3 = html_content.xpath('//h2[contains(@property, "dcterms:creator")]/text()')
         a = _sort_names(list(set(a1+a2+a3)))
-        authors_data[f'ISAW Papers {i}'] = a
-    return render_template('author.html', authors_data=authors_data)
-
+        authors_data[str(i)] = a
+    return render_template('index.html',  authors_data=authors_data, BASE_URL=BASE_URL)
 
 @app.route('/authors_reversed')
 def get_papers():
